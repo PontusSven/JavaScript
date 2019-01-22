@@ -6,7 +6,7 @@
 // >= - greater than or equal to
 
 
-let temp = 80;
+let temp = 40;
 let isFreezing = temp === 32;
 
 if (temp <= 32) {
@@ -15,10 +15,10 @@ if (temp <= 32) {
 
 if (temp >= 100) {
     console.log('It is way to hot outside!');
-}
-
-if (temp >= 33 || temp <= 99) {
-    console.log('It is very pleasant outside!')
+} else if (temp >= 33 || temp <= 99) {
+    console.log('It is very pleasant outside!');
+} else {
+    console.log('Go for it. IT is pretty nice');
 }
 
 
