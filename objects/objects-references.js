@@ -17,3 +17,5 @@ let addIncome = function (account, amount) {
 addExpense(myAccount, 2.5)
 addIncome(myAccount, 10)
 console.log(myAccount)
+
+// test
