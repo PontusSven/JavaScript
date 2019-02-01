@@ -26,3 +26,8 @@ console.log(notes)
 // replace 
 notes[2] = 'this is now the new note 3'
 console.log(notes)
+
+notes.forEach(function(item, index) {
+    console.log(index)
+    console.log(item)
+})

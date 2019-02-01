@@ -11,4 +11,7 @@ todo.shift()
 
 
 console.log(`You have ${todo.length} todos`)
-console.log(todo)
+
+todo.forEach(function(item, index) {
+    console.log(`${index + 1}. ${item}`)
+})
