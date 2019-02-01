@@ -5,5 +5,3 @@ const person = {
 
 person.age = 28
 // isRaining = false
-
-console.log(isRaining)
