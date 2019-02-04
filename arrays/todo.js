@@ -13,5 +13,12 @@ todo.shift()
 console.log(`You have ${todo.length} todos`)
 
 todo.forEach(function(item, index) {
-    console.log(`${index + 1}. ${item}`)
+    console.log(`${index + 1}. ${item}`) 
 })
+
+/*
+for (let count = 0; count < todo.length; count++) {
+    let num = count + 1
+    console.log(`${num}. ${todo[count]}`)
+}
+*/
