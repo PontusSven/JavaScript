@@ -28,8 +28,18 @@ const deleteTodo = function (myArray, title) {
     }
 }
 
-deleteTodo(todo, 'Clean')
-console.log(todo)
+
+const completedTasks = function (todo) {
+    return todo.filter(function(note, index) {
+        return note.completed
+    })
+     
+}
+
+console.log(completedTasks(todo))
+
+/* deleteTodo(todo, 'Clean')
+console.log(todo) */
 
 
 // delete the 3rd item
