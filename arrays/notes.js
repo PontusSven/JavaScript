@@ -1,4 +1,13 @@
-const notes = ['Note 1', 'Note 2', 'Note 3']
+const notes = [{
+    title: 'My next trip',
+    body: 'I would like to go to Spain'
+},{
+    title: 'Habbits to work on',
+    body: 'Exercise. Eating better'
+},{
+    title: 'Office improvements',
+    body: 'Get a better chair'
+}]
 
 
 /* console.log(notes.length)
@@ -33,11 +42,19 @@ notes.forEach(function(item, index) {
 
 */
 
-for (let count = 0; count <= 2; count++) {
+/* for (let count = 0; count <= 2; count++) {
     console.log(`Hello, ${count}`)
 } 
 
 for (let count = notes.length - 1; count >= 0; count--) {
     console.log(notes[count])
-}
+} */
+
+const index = notes.findIndex(function (note, index) {
+    console.log(note)
+    return note.title == 'Habbits to work on'
+})
+console.log(index)
+
+
 
