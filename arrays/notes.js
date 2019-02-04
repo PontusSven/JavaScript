@@ -50,11 +50,27 @@ for (let count = notes.length - 1; count >= 0; count--) {
     console.log(notes[count])
 } */
 
-const index = notes.findIndex(function (note, index) {
+/* const index = notes.findIndex(function (note, index) {
     console.log(note)
     return note.title == 'Habbits to work on'
 })
-console.log(index)
+console.log(index) */
+
+const findNote = function (notes, noteTitle) {
+     return notes.find(function (note, index) {
+        return note.title.toLowerCase() === noteTitle.toLowerCase()
+     })
+}
+
+/* const findNote = function (notes, noteTitle) {
+    const index = notes.findIndex(function (note, index) {
+       return note.title.toLowerCase() === noteTitle.toLowerCase()
+    })
+    return notes[index]
+} */
+
+const note = findNote(notes, 'Office improvements')
+console.log(note)
 
 
 
