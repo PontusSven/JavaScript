@@ -33,7 +33,6 @@ const account = {
     }
 }
 
-
 account.addExpense('Rent', 950)
 account.addExpense('Coffee', 2)
 account.AddIncome('Job', 1000)
