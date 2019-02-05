@@ -15,6 +15,22 @@ const todo = [{
     completed: true
 }]
 
+// Sort array by completed (true false)
+const sortTodos = function (myArray) {
+    todo.sort(function (a, b) {
+        if (!a.completed && b.completed) {
+            return -1
+        } else if (!b.completed &&  a.completed) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+
+sortTodos(todo)
+// console.log(todo)
+
 // 1. Switch to array to objects -> text, completed(boolean)
 // 2. Create function to remove a todo by text value
 
@@ -38,14 +54,12 @@ const completedTasks = function (todo) {
      
 }
 
-console.log(completedTasks(todo))
-
-/* deleteTodo(todo, 'Clean')
-console.log(todo) */
+deleteTodo(todo, 'Clean')
+// console.log(todo) 
 
 
 // delete the 3rd item
-/* todo.splice(2, 1)
+todo.splice(2, 1)
 
 // add a new item onto the end
 todo.push('Wash dishes')
@@ -54,15 +68,14 @@ todo.push('Wash dishes')
 todo.shift()
 
 
-console.log(`You have ${todo.length} todos`)
+// console.log(`You have ${todo.length} todos`)
 
 todo.forEach(function(item, index) {
-    console.log(`${index + 1}. ${item}`) 
-}) */
+  // console.log(`${index + 1}. ${item}`) 
+}) 
 
-/*
+
 for (let count = 0; count < todo.length; count++) {
     let num = count + 1
-    console.log(`${num}. ${todo[count]}`)
+   // console.log(`${num}. ${todo[count]}`)
 }
-*/
