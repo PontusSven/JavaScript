@@ -18,11 +18,13 @@ const todo = [{
 // 1. Switch to array to objects -> text, completed(boolean)
 // 2. Create function to remove a todo by text value
 
-
+// Function to delete a object
 const deleteTodo = function (myArray, title) {
+    // Function to find a specific string and return the index
     const index = myArray.findIndex(function(myArray, index) {
         return myArray.text.toLowerCase() === title.toLowerCase()
         })
+    // If a index is found, remove it
     if(index > -1) {
         myArray.splice(index, 1)
     }
