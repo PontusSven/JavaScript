@@ -15,6 +15,11 @@ const todo = [{
     completed: true
 }]
 
+document.querySelector('button').addEventListener('click',function (e) {
+    console.log('Hello there')
+})
+
+
 // Print out - You have 2 todos left (p element)
 const incompleteTodos = todo.filter(function (todo) {
     return !todo.completed
@@ -31,13 +36,16 @@ todo.forEach(function(array) {
     document.querySelector('body').appendChild(tasksNotDone)
 })
 
-/* const ps = document.querySelectorAll('p')
+
+
+/*
+const ps = document.querySelectorAll('p')
 
 ps.forEach(function (p) {
  
     if (p.textContent.includes('the')) {
         p.remove()  
     } 
-}) */
+}) 
 
-
+ */
