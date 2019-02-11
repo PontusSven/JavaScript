@@ -16,16 +16,20 @@ const todo = [{
 }]
 
 const filters = {
-    searchText: ''
+    searchText: '',
+    hideCompleted: false
 }
 
 const renderTodos = function (todo, filters) {
-    const filteredtodos = todo.filter(function (todo) {
-        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+    const filteredTodos = todo.filter(function (todo) {
+        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+        const hideCompletedMatch = !filters.hideCompleted || !todo.completed
+        
+        return searchTextMatch && hideCompletedMatch
     })
 
-    const incompleteTodos = filteredtodos.filter(function (todo) {
-        return !filteredtodos.completed
+    const incompleteTodos = filteredTodos.filter(function (todo) {
+        return !filteredTodos.completed
     })
 
     document.querySelector('#todos-filter').innerHTML = ''
@@ -34,7 +38,7 @@ const renderTodos = function (todo, filters) {
     summary.textContent = `You have ${incompleteTodos.length} todos left`
     document.querySelector('#todos-filter').appendChild(summary)
     
-    filteredtodos.forEach(function (todo) {
+    filteredTodos.forEach(function (todo) {
         const newTodo = document.createElement('p')
         newTodo.textContent = todo.text
         document.querySelector('#todos-filter').appendChild(newTodo)
@@ -58,23 +62,9 @@ document.querySelector('#todo-form').addEventListener('submit', function (e) {
     renderTodos(todo, filters)
     e.target.elements.newTodo.value = ''
 }) 
-/* document.querySelector('#add-todo').addEventListener('click',function (e) {
-    console.log('Hello there')
-}) */
 
-/* document.querySelector('#new-todo').addEventListener('input', function (e) {
-    console.log(e.target.value)
-}) */
+document.querySelector('#hide-completed').addEventListener('change', function (e) {
+    filters.hideCompleted = e.target.value
+    renderTodos(todo, filters)
 
-
-/*
-const ps = document.querySelectorAll('p')
-
-ps.forEach(function (p) {
- 
-    if (p.textContent.includes('the')) {
-        p.remove()  
-    } 
-}) 
-
- */
+})
