@@ -19,7 +19,9 @@ document.querySelector('#add-todo').addEventListener('click',function (e) {
     console.log('Hello there')
 })
 
-
+document.querySelector('#new-todo').addEventListener('input', function (e) {
+    console.log(e.target.value)
+})
 // Print out - You have 2 todos left (p element)
 const incompleteTodos = todo.filter(function (todo) {
     return !todo.completed
@@ -35,8 +37,6 @@ todo.forEach(function(array) {
     tasksNotDone.textContent = array.text
     document.querySelector('body').appendChild(tasksNotDone)
 })
-
-
 
 /*
 const ps = document.querySelectorAll('p')
