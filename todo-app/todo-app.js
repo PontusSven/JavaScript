@@ -15,6 +15,34 @@ const todo = [{
     completed: true
 }]
 
+const filters = {
+    searchText: ''
+}
+
+const renderTodos = function (todo, filters) {
+    const filteredtodos = todo.filter(function (todo) {
+        return todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+
+    const incompleteTodos = filteredtodos.filter(function (todo) {
+        return !filteredtodos.completed
+    })
+
+    document.querySelector('#todos-filter').innerHTML = ''
+
+    const summary = document.createElement('h2')
+    summary.textContent = `You have ${incompleteTodos.length} todos left`
+    document.querySelector('#todos-filter').appendChild(summary)
+    
+    filteredtodos.forEach(function (todo) {
+        const newTodo = document.createElement('p')
+        newTodo.textContent = todo.text
+        document.querySelector('#todos-filter').appendChild(newTodo)
+    })
+}
+
+renderTodos(todo, filters)
+
 document.querySelector('#add-todo').addEventListener('click',function (e) {
     console.log('Hello there')
 })
@@ -22,21 +50,13 @@ document.querySelector('#add-todo').addEventListener('click',function (e) {
 document.querySelector('#new-todo').addEventListener('input', function (e) {
     console.log(e.target.value)
 })
-// Print out - You have 2 todos left (p element)
-const incompleteTodos = todo.filter(function (todo) {
-    return !todo.completed
+
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    filters.searchText = e.target.value
+    renderTodos(todo, filters)
 })
 
-const summary = document.createElement('h2')
-summary.textContent = `You have ${incompleteTodos.length} todos left`
-document.querySelector('body').appendChild(summary)
 
-// Add a p for each todo above (use text value)
-todo.forEach(function(array) {
-    const tasksNotDone = document.createElement('p')
-    tasksNotDone.textContent = array.text
-    document.querySelector('body').appendChild(tasksNotDone)
-})
 
 /*
 const ps = document.querySelectorAll('p')
