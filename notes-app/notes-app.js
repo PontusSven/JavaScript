@@ -11,7 +11,7 @@ const notes = [{
 
 
 const filters = {
-    searchText: ''
+    searchText: '' 
 }
 
 const renderNotes = function (notes, filters) {
@@ -40,7 +40,6 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#for-fun').addEventListener('change', function (e) {
-    console.log(e.target.checked)
+document.querySelector('#filter-by').addEventListener('change', function (e) {
+    console.log(e.target.value)
 })
-
