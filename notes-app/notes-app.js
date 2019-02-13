@@ -14,6 +14,29 @@ const filters = {
     searchText: '' 
 }
 
+const userJSON = localStorage.getItem('user')
+const user = JSON.parse(userJSON)
+console.log(`${user.name} is ${user.age} years old`)
+
+/* const user = {
+    name: 'Andrew',
+    age: 27
+}
+const userJSON = JSON.stringify(user)
+console.log(userJSON)
+
+localStorage.setItem('user', userJSON)
+ */
+// CRUD, Create , Read, Update, Delete
+
+// localStorage.setItem('location', 'Philadelphia')
+
+// onsole.log(localStorage.getItem('location'))
+
+// localStorage.removeItem('location')
+
+// localStorage.clear()
+
 const renderNotes = function (notes, filters) {
     const filteredNotes = notes.filter(function (note) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
