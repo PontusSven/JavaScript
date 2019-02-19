@@ -44,13 +44,13 @@ const generateTodoDOM = function (todo) {
     const checkbox = document.createElement('input')
     const removeButton = document.createElement('button')
 
-    // Setup the todo text
-    todoText.textContent = todo.text
-    container.appendChild(todoText)
-
     // Setup todo checkboxes)
     checkbox.setAttribute('type', 'checkbox')
     container.appendChild(checkbox)
+
+     // Setup the todo text
+     todoText.textContent = todo.text
+     container.appendChild(todoText)
 
     // Setup remove button
     removeButton.textContent = 'x'
