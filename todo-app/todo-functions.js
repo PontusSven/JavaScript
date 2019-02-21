@@ -31,10 +31,19 @@ const renderTodos = function (todos, filters) {
 
     filteredTodos.forEach(function (todo) {
         document.querySelector('#todos').appendChild(generateTodoDOM(todo))
-    })
-
-    
+    })  
 }
+// Remove notes
+const removeTodo = function (id) {
+    const index = todos.findIndex(function (todo) {
+       return todo.id === id
+    }) 
+
+    if (index > -1) {
+        todos.splice(index, 1)
+    }
+}
+
 // Get the DOM elements for an individual note
 const generateTodoDOM = function (todo) {
 
@@ -55,6 +64,11 @@ const generateTodoDOM = function (todo) {
     // Setup remove button
     removeButton.textContent = 'x'
     container.appendChild(removeButton)
+    removeButton.addEventListener('click', function () {
+        removeTodo(todo.id)
+        saveTodos(todos, filters)
+        renderTodos(todos)
+    })
     
     return container
 }
