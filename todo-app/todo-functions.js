@@ -1,4 +1,4 @@
-// Fetch existing todos from localStorage
+ // Fetch existing todos from localStorage
 const getSavedTodos = function() {
     const todosJSON = localStorage.getItem('todos')
     if (todosJSON !== null) {
@@ -66,8 +66,8 @@ const generateTodoDOM = function (todo) {
     container.appendChild(removeButton)
     removeButton.addEventListener('click', function () {
         removeTodo(todo.id)
-        saveTodos(todos, filters)
-        renderTodos(todos)
+        saveTodos(todos)
+        renderTodos(todos, filters)
     })
     
     return container
