@@ -33,6 +33,17 @@ const renderTodos = function (todos, filters) {
         document.querySelector('#todos').appendChild(generateTodoDOM(todo))
     })  
 }
+// Change checkbox state
+const toggleTodo = function (id) {
+    const todo = todos.find(function (todo) {
+        return todo.id === id
+    })
+
+    if (todo !== undefined) {
+        todo.completed = !todo.completed
+    }
+}
+
 // Remove notes
 const removeTodo = function (id) {
     const index = todos.findIndex(function (todo) {
@@ -53,9 +64,18 @@ const generateTodoDOM = function (todo) {
     const checkbox = document.createElement('input')
     const removeButton = document.createElement('button')
 
-    // Setup todo checkboxes)
+    // Setup todo checkboxes
     checkbox.setAttribute('type', 'checkbox')
+    checkbox.checked = todo.completed
     container.appendChild(checkbox)
+
+    // Check checkbox event
+    checkbox.addEventListener('change', function () {
+        toggleTodo(todo.id)
+        saveTodos(todos)
+        renderTodos(todos, filters)
+    })
+
 
      // Setup the todo text
      todoText.textContent = todo.text
